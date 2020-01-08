@@ -1,0 +1,26 @@
+$bg-color: black;
+$color: white;
+.container {
+  box-sizing: border-box;
+  background: $bg-color;
+  display: flex;
+  color: $color;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+}
+
+.header {
+  flex-grow: 1;
+  display: flex;
+}
+
+.nav {
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.logo {
+  font-size: 1.5rem;
+}

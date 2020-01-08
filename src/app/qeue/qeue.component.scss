@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 600px){
+  .container {
+    width: 60rem;
+  }
+}
+.queue__section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.queue__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.structure {
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+  flex-grow: 1;
+  transition: background 0.8s;
+}
+
+.queue__structure {
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+.queue__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+.queue {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.queue__filter {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.queue__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.queue__item {
+  height: 4rem;
+}
+
+
+.methods__container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.methods__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.method__item {
+  margin-right: 2rem;
+}
+
+.empty-true {
+  color: darkolivegreen;
+}
+.empty-false {
+  color: crimson;
+}
+
+.animation-left {
+  animation: left 200ms;
+
+}
+.animation-right {
+  animation: right 200ms;
+
+}
+
+.animation-add {
+  animation: add 200ms;
+}
+
+@keyframes left {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-130%);
+    background: transparent;
+  }
+}
+
+@keyframes right {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(130%);
+    background: transparent;
+  }
+}
+
+@keyframes add {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+
+}

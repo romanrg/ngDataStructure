@@ -1,0 +1,87 @@
+<section class="stack">
+  <h2 class="stack__header">{{'How does Stack works' | uppercase}}</h2>
+  <div class="container">
+    <div class="stack__input input">
+      <h3 class="input__header">Input</h3>
+      <ul class="input__list" >
+        <li *ngFor="let item of input"
+            [class.animation-add]="addAnimation"
+            class="input__item"
+            [ngStyle]="{'background': item.color}"
+        >
+          <h4>{{item.color}}</h4>
+        </li>
+      </ul>
+      <button (click)="addData()" class="input__button">Add data</button>
+    </div>
+    <div class="stack__structure structure">
+      <h3 class="structure__header">Stack</h3>
+      <ul class="stack__list"
+        [class.animation-clear]="clearAnimation" [class.animation]="!clearAnimation"
+
+      >
+        <li class="stack__item"
+            *ngFor="let item of stackItems.reverse()"
+            [class.animation-move-stack]="item.move"
+            [ngStyle]="{'background': item.color}"
+            >
+
+          <h4>{{item.color}}</h4>
+        </li>
+      </ul>
+    </div>
+    <div class="stack__output output">
+      <h3 class="output__header">Output</h3>
+      <ul class="output__list" *ngIf="output !== undefined">
+        <li class="output__item" [class.animation-move-stack]="output.move"
+            [class.animation-leave]="output.complete"
+            [ngStyle]="{'background': output.color}">
+          <h4>{{output.color}}</h4>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrapper methods">
+    <h3 class="methods__header">Methods:</h3>
+    <ul class="methods__list">
+      <li class="methods__item">
+        <button class="method__button"
+                (click)="push()"
+                [disabled]="!(input.length > 0) || stackItems.length > 5"
+        >Push</button>
+      </li>
+      <li class="methods__item">
+        <button
+          class="method__button"
+          [disabled]="!(stackItems.length > 0)"
+          (click)="popItem()"
+        >Pop</button>
+      </li>
+      <li class="methods__item">
+        <button
+          class="method__button"
+          [disabled]="!(stackItems.length > 0)"
+          (click)="clear()"
+        >Clear</button>
+      </li>
+      <li class="methods__item">
+        <p
+          class="method__button"
+          [ngStyle]="{'color': peeked ? peeked.color : 'black'}"
+        >{{peeked ? 'Peeked' : 'Nothing'}}</p>
+      </li>
+      <li class="methods__item">
+        <p
+          class="method__button"
+        >Size: {{this.stackItems.length}}</p>
+      </li>
+      <li class="methods__item">
+        <p
+          class="method__button"
+          [class.empty]="this.stackItems.length === 0"
+          [class.full]="this.stackItems.length !== 0"
+        >empty: {{this.stackItems.length === 0}}</p>
+      </li>
+    </ul>
+  </div>
+</section>

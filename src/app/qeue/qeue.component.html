@@ -1,0 +1,71 @@
+<div class="container">
+  <section class="queue__section">
+    <h2 class="queue__header">How does Queue Work</h2>
+    <div class="container structure">
+      <div class="queue__structure"
+        [ngStyle]="{'background':leftBgColor}"
+      >
+      </div>
+
+      <div class="queue__structure queue">
+        <div
+          class="queue__filter"
+          [class.animation-left]="!filterVerdict && filterVerdict !== null"
+          [class.animation-right]="filterVerdict && filterVerdict !== null"
+          [ngStyle]="{'background' : filteredCard ? filteredCard.color : 'transparent'}"
+        >
+        </div>
+        <ul class="queue__list" *ngIf="flow.length !== 0">
+            <li class="queue__item" *ngFor="let card of flow"
+                [ngStyle]="{'background': (card | background)}"
+                [class.animation-add]="card"
+            ></li>
+        </ul>
+      </div>
+
+      <div class="queue__structure"
+           [ngStyle]="{'background': rightBgColor}"
+      >
+      </div>
+    </div>
+    <div class="methods__container">
+      <h3 class="methods__header">Methods:</h3>
+      <ul class="methods__list">
+        <li class="method__item">
+          <button
+            class="method__btn"
+            (click)="enqueue()"
+          >enqueue</button>
+        </li>
+
+        <li class="method__item">
+          <button
+            class="method__btn"
+            (click)="dequeue()"
+            [disabled]="shouldDequeueDisabled || flow.length === 0"
+          >dequeue</button>
+        </li>
+
+        <li
+          class="method__item"
+          [ngStyle]="{'color': flow[0] | background}"
+        >
+          <p class="method__btn">front</p>
+        </li>
+
+        <li class="method__item">
+          <p
+            class="method__btn"
+            [class.empty-true]="flow.length === 0"
+            [class.empty-false]="flow.length !== 0"
+          >isEmpty</p>
+        </li>
+
+        <li class="method__item">
+          <p class="method__btn">size: {{flow.length}}</p>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+</div>
